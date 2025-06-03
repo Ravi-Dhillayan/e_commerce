@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sell on Zippee</title>
+  <script src="https://kit.fontawesome.com/50122dd40b.js" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="sell.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    /* Responsive nav for mobile */
+    .nav-menu {
+      transition: all 0.3s;
+      background: #111;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .nav-menu li {
+      display: inline-block;
+    }
+    .nav-menu a, .nav-menu button {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1rem;
+    }
+    .nav-menu a:hover, .nav-menu button:hover {
+      background: #fff;
+      color: #111;
+    }
+    @media (max-width: 768px) {
+      .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+      .nav-menu li {
+        width: 100%;
+      }
+      .nav-menu a, .nav-menu button {
+        width: 100%;
+        text-align: left;
+      }
+    }
+    .menu-toggle {
+      background: #111;
+      color: #fff;
+      border: 2px solid #ffc107;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      padding: 4px 16px;
+      margin: 10px;
+      cursor: pointer;
+      display: none;
+    }
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: inline-block;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-menu.show {
+        display: flex !important;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+    }
+    /* Card hover effect */
+    .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      border-color: #0d6efd !important;
+    }
+    /* Banner style */
+    .sell-banner {
+      background: linear-gradient(135deg, #1976d2 60%, #00bcd4 100%);
+      color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      padding: 2.5rem 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .sell-banner .btn-warning {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.75rem 2.5rem;
+      border-radius: 8px;
+    }
+    /* Toast style */
+    .toast {
+      z-index: 2000;
+    }
+    .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(13,110,253,0.2);
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ripple-effect 0.6s linear;
+  z-index: 2;
+}
+@keyframes ripple-effect {
+  from { opacity: 1; transform: scale(0); }
+  to { opacity: 0; transform: scale(2); }
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header bg-dark position-relative">
+    <section class="section_1 d-flex align-items-center justify-content-between container-fluid">
+      <span class="fs-4 fw-bold text-white py-2">Zippee</span>
+      <button class="menu-toggle" onclick="SelltoggleMenu()">
+        &#9776; All
+      </button>
+      <ul class="nav-menu animate__animated" id="navMenu">
+        <li><a href="../index.html" class="home">Home</a></li>
+        <li><a href="../moblie/mobile.html">Mobile</a></li>
+        <li><a href="../Products/Products.html">Products</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="sell.html" style="text-decoration:underline;">Sell</a></li>
+        <li><a href="../about.html">About Us</a></li>
+        <li><button onclick="viewCart()" id="btn_quantity">
+          <i class="fa-solid fa-cart-shopping"></i> Cart
+        </button></li>
+        <li><button onclick="Logout()">Logout</button></li>
+      </ul>
+    </section>
+  </header>
+
+  <!-- Banner -->
+  <section class="sell-banner container my-4">
+    <h1 class="display-5 mb-2">Become a Seller on Zippee!</h1>
+    <p class="lead">Reach millions of customers and grow your business with us.</p>
+    <a href="#categories" class="btn btn-warning btn-lg mt-2 fw-bold">Start Selling Now</a>
+  </section>
+
+  <!-- Sell Categories -->
+  <section id="categories" class="container my-5">
+    <h2 class="mb-4 text-center fw-bold">What Can You Sell?</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="window.location.href='../moblie/mobile.html'">
+          <img src="PHOTOS/mobile.jpg" class="card-img-top p-3" alt="Mobile" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Mobiles</h5>
+            <p class="card-text">Sell new or used smartphones and accessories.</p>
+            <a href="../moblie/mobile.html" class="btn btn-outline-primary">Sell Mobiles</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="window.location.href='../men/men.html'">
+          <img src="PHOTOS/men.jpg" class="card-img-top p-3" alt="Men" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Men's Products</h5>
+            <p class="card-text">Clothing, shoes, watches, and more for men.</p>
+            <a href="../men/men.html" class="btn btn-outline-primary">Sell Men's Items</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="window.location.href='../Women/women.html'">
+          <img src="PHOTOS/women.jpg" class="card-img-top p-3" alt="Women" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Women's Products</h5>
+            <p class="card-text">Fashion, beauty, accessories, and more for women.</p>
+            <a href="../Women/women.html" class="btn btn-outline-primary">Sell Women's Items</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="window.location.href='../kids/kids.html'">
+          <img src="PHOTOS/kids.jpg" class="card-img-top p-3" alt="Kids" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Kids</h5>
+            <p class="card-text">Toys, clothing, and essentials for kids.</p>
+            <a href="../kids/kids.html" class="btn btn-outline-primary">Sell Kids' Items</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="showToast('Gift Card sales coming soon!')">
+          <img src="PHOTOS/giftcard.jpg" class="card-img-top p-3" alt="Gift Cards" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Gift Cards</h5>
+            <p class="card-text">Offer gift cards for any occasion.</p>
+            <a href="#" class="btn btn-outline-primary" onclick="showToast('Gift Card sales coming soon!');event.stopPropagation();">Sell Gift Cards</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="card h-100 text-center shadow-sm" onclick="window.location.href='../Products/Products.html'">
+          <img src="PHOTOS/electronics.jpg" class="card-img-top p-3" alt="Electronics" style="height:140px;object-fit:contain;">
+          <div class="card-body">
+            <h5 class="card-title">Electronics</h5>
+            <p class="card-text">Laptops, gadgets, and more electronics.</p>
+            <a href="../Products/Products.html" class="btn btn-outline-primary">Sell Electronics</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more categories as needed -->
+    </div>
+  </section>
+
+  <!-- Why Sell With Us -->
+  <section class="container my-5">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <img src="PHOTOS/sell_benefits.jpeg" alt="Sell Benefits" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-md-6">
+        <h3>Why Sell on Zippee?</h3>
+        <ul class="list-unstyled fs-5">
+          <li><i class="fa-solid fa-check text-success me-2"></i>Zero listing fees</li>
+          <li><i class="fa-solid fa-check text-success me-2"></i>Reach millions of buyers</li>
+          <li><i class="fa-solid fa-check text-success me-2"></i>Easy product management</li>
+          <li><i class="fa-solid fa-check text-success me-2"></i>Fast payouts</li>
+          <li><i class="fa-solid fa-check text-success me-2"></i>24/7 seller support</li>
+        </ul>
+        <a href="#categories" class="btn btn-success btn-lg mt-3">Start Selling</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start mt-auto">
+    <div class="container py-4">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5>Zippee Categories</h5>
+          <ul  class="list-unstyled">
+            <li><a href="../men/men.html" class="text-dark">Men</a></li>
+            <li><a href="../Women/women.html" class="text-dark">Women</a></li>
+            <li><a href="../kids/kids.html" class="text-dark">Kids</a></li>
+            <li><a href="../moblie/mobile.html" class="text-dark">Mobile</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-3">
+          <h5>Customer Service</h5>
+          <ul class="list-unstyled">
+            <li><a href="../contact.html" class="text-dark">Contact</a></li>
+            <li><a href="#" class="text-dark">Return Policy</a></li>
+            <li><a href="#" class="text-dark">Shipping Info</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 text-md-start text-center">
+          <h5>Connect With Us</h5>
+          <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+            <a href="tel:+918307062117"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:raviambersariya1@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ravi-kumar-6223b5280"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Ravi-Dhillayan"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center py-2 bg-dark text-white">
+      &copy; 2024 Zippee. All rights reserved.
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Hamburger menu toggle with animation
+    function SelltoggleMenu() {
+      const navMenu = document.getElementById("navMenu");
+      navMenu.classList.toggle("show");
+      navMenu.classList.toggle("animate__fadeInDown");
+    }
+
+    // Cart navigation
+    function viewCart() {
+      window.location.href = "../cart.html";
+    }
+
+    // Logout with toast notification
+    function Logout() {
+      sessionStorage.removeItem("user");
+      showToast("You have been logged out.");
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", function(e) {
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    });
+
+    // Animate cards on hover
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('shadow-lg', 'border-primary');
+      });
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('shadow-lg', 'border-primary');
+      });
+    });
+
+    // Toast notification function
+    function showToast(message) {
+      let toast = document.createElement('div');
+      toast.className = 'toast align-items-center text-bg-success border-0 show position-fixed bottom-0 end-0 m-4';
+      toast.role = 'alert';
+      toast.innerHTML = `
+        <div class="d-flex">
+          <div class="toast-body">${message}</div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+      `;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+    // Highlight active nav link based on current page
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  if (window.location.pathname.endsWith(link.getAttribute('href'))) {
+    link.style.textDecoration = "underline";
+    link.style.fontWeight = "bold";
+  }
+});
+
+// Show a tooltip on card buttons
+document.querySelectorAll('.card .btn').forEach(btn => {
+  btn.setAttribute('data-bs-toggle', 'tooltip');
+  btn.setAttribute('title', 'Click to view or sell in this category!');
+});
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+  new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
+// Scroll-to-top button
+const scrollBtn = document.createElement('button');
+scrollBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+scrollBtn.className = 'btn btn-primary position-fixed';
+scrollBtn.style.bottom = '30px';
+scrollBtn.style.right = '30px';
+scrollBtn.style.display = 'none';
+scrollBtn.style.zIndex = '3000';
+scrollBtn.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+document.body.appendChild(scrollBtn);
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollBtn.style.display = 'block';
+  } else {
+    scrollBtn.style.display = 'none';
+  }
+});
+
+// Animate "Why Sell on Zippee" section on scroll
+const whySellSection = document.querySelector('.container.my-5 .row.align-items-center');
+if (whySellSection) {
+  function animateWhySell() {
+    const rect = whySellSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      whySellSection.classList.add('animate__animated', 'animate__fadeInUp');
+      window.removeEventListener('scroll', animateWhySell);
+    }
+  }
+  window.addEventListener('scroll', animateWhySell);
+  animateWhySell();
+}
+
+// Card click ripple effect
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    const circle = document.createElement('span');
+    circle.className = 'ripple';
+    circle.style.left = `${e.offsetX}px`;
+    circle.style.top = `${e.offsetY}px`;
+    this.appendChild(circle);
+    setTimeout(() => circle.remove(), 600);
+  });
+});
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,124 @@
+body {
+  background: #f4f6fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  background: #11122b;
+  color: #fff;
+  width: 220px;
+  min-height: 100vh;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar-header {
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fea116;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+.sidebar-menu li {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1.1rem;
+  border-left: 4px solid transparent;
+}
+.sidebar-menu li.active,
+.sidebar-menu li:hover {
+  background: #22234a;
+  color: #fea116;
+  border-left: 4px solid #fea116;
+}
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background: #f4f6fa;
+  min-height: 100vh;
+}
+.admin-section {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: none;}
+}
+.dash-card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.dash-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+.color {
+  color: #fea116;
+}
+.table thead {
+  background: #22234a;
+  color: #fff;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+.modal-content {
+  border-radius: 1rem;
+}
+@media (max-width: 900px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    position: static;
+  }
+  .sidebar-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .sidebar-menu li {
+    padding: 1rem 0.5rem;
+    border-left: none;
+    border-bottom: 4px solid transparent;
+  }
+  .sidebar-menu li.active,
+  .sidebar-menu li:hover {
+    border-left: none;
+    border-bottom: 4px solid #fea116;
+  }
+}
+@media (max-width: 600px) {
+  .main-content {
+    padding: 1rem 0.2rem;
+  }
+  .sidebar-header {
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+  }
+}

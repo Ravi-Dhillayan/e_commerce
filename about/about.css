@@ -1,0 +1,537 @@
+    /* About us section css */
+.hero-header {
+    background: linear-gradient(rgba(15, 23, 43, .9), rgba(15, 23, 43, .9)), url(gallery/bg-hero.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .nav-menu {
+      transition: all 0.3s;
+      background: #111;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .nav-menu li {
+      display: inline-block;
+    }
+    .nav-menu a, .nav-menu button {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      background: none;
+      border: none;
+      transition: background 0.2s, color 0.2s;
+      font-size: 1rem;
+    }
+    .nav-menu a:hover, .nav-menu button:hover {
+      background: #fff;
+      color: #111;
+    }
+    @media (max-width: 768px) {
+      .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+      .nav-menu li {
+        width: 100%;
+      }
+      .nav-menu a, .nav-menu button {
+        width: 100%;
+        text-align: left;
+      }
+    }
+    .menu-toggle {
+      background: #111;
+      color: #fff;
+      border: 2px solid #ffc107;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      padding: 4px 16px;
+      margin: 10px;
+      cursor: pointer;
+      display: none;
+    }
+    @media (max-width: 992px) {
+      .menu-toggle {
+        display: inline-block;
+      }
+      .nav-menu {
+        display: none;
+      }
+      .nav-menu.show {
+        display: flex !important;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+      }
+    }
+    /* Card hover effect */
+    .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      border-color: #0d6efd !important;
+    }
+    /* Banner style */
+    .sell-banner {
+      background: linear-gradient(135deg, #1976d2 60%, #00bcd4 100%);
+      color: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      padding: 2.5rem 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .sell-banner .btn-warning {
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.75rem 2.5rem;
+      border-radius: 8px;
+    }
+    /* Toast style */
+    .toast {
+      z-index: 2000;
+    }
+    .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(13,110,253,0.2);
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ripple-effect 0.6s linear;
+  z-index: 2;
+}
+@keyframes ripple-effect {
+  from { opacity: 1; transform: scale(0); }
+  to { opacity: 0; transform: scale(2); }
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+/* about us section end css */
+ .color_li{
+  color: yellow !important;
+  font-size: 25px;
+  }
+:root {
+    --primary-color: #fea116;
+    --secondary-color: #ffa500;
+    --dark-bg: #11122b;
+    --light-bg: #f8f9fa;
+    --text-dark: #333;
+    --text-light: #ffffff;
+  }
+  
+  body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* General Styles */
+  .color {
+    color: var(--primary-color);
+    
+  }
+  
+  .main {
+    background: linear-gradient(rgba(15, 23, 43, .4), rgba(15, 23, 43, .9)), url(gallery/back_1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+    /* height: 600px; */
+    /* background: url(gallery/back_1.jpg) no-repeat center center/cover, wheat; */
+  }
+  
+  .any {
+    border-radius: 50%;
+    border: 10px solid black;
+    animation: an 9.5s linear infinite;
+  }
+  
+  @keyframes an {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Navigation */
+  .nav {
+    color: var(--text-light);
+    background-color: black;
+    padding: 10px;
+  }
+  
+  .link a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+  
+  .link a:hover {
+    background-color: var(--primary-color);
+    color: black;
+    border-radius: 5px;
+  }
+  
+  /* Buttons */
+  .button1 {
+    height: 40px;
+    background-color: var(--primary-color);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button1:hover {
+    background-color: var(--secondary-color);
+  }
+  
+  /* Font Styles */
+  .font h2 {
+    color: rgb(192, 160, 20);
+    font-size: 40px;
+  }
+  
+  .font p {
+    font-size: 20px;
+    color: black;
+  }
+  
+  /* Master Button */
+  .master {
+    background-color: black;
+    color: var(--text-light);
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .master:hover {
+    color: var(--text-light);
+    background-color: rgb(99, 24, 24);
+  }
+  
+  /* Images */
+  .images {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .chicken {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* popular breakfast */
+ .popular{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+ .popular a{
+  color: #11122b;
+ }
+ .xyz{
+  display: flex;
+  justify-content: center;
+ }
+
+
+  /* Menu Section */
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .menu-item img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+  }
+  
+  .menu-item strong {
+    font-size: 18px;
+    color: var(--text-dark);
+  }
+  
+  .menu-item .price {
+    font-size: 18px;
+    color: var(--primary-color);
+  }
+  
+  /* Reservation Section */
+  .reservation-section {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 50px 20px;
+    border-radius: 10px;
+  }
+  
+  .reservation-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .form-control,
+  .btn {
+    border-radius: 5px;
+  }
+  
+  .btn {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #ff7800;
+  }
+  
+  /* Chef Section */
+  .team-section {
+    padding: 50px 0;
+    text-align: center;
+    background-color: var(--light-bg);
+  }
+  
+  .team-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .team-section p {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .chef-card {
+    background-color: var(--text-light);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .chef-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .chef-card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .chef-card h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .chef-card p {
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .social-icons a {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #ff7800;
+  }
+  
+  .hover a:hover {
+
+    background-color: var(--dark-bg);
+    color: var(--dark-bg);
+   
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .menu-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .chef-card img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .reservation-section {
+      padding: 20px;
+    }
+  }
+ 
+  /* Testimonail */
+  .testimonail{
+    display: flex;
+    }
+    .col_change{
+      /* background-color: yellow; */
+      color: #fea116;
+    }
+
+
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+.myself-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fdfdfd 0%, #f5f5f5 100%);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.photo-box {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.myself-photo {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid #fea116;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transition: transform 0.4s;
+}
+
+.myself-photo:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.content-box {
+  flex: 1 1 500px;
+}
+
+.content-box h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.highlight {
+  color: #fea116;
+}
+
+.typing-text {
+  min-height: 40px;
+  color: #ffa500;
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: #444;
+  font-size: 1.6rem;
+  margin-right: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #fea116;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content-box h1 {
+    font-size: 2rem;
+  }
+
+  .typing-text {
+    font-size: 1.2rem;
+  }
+
+  .myself-photo {
+    width: 180px;
+    height: 180px;
+  }
+}
+body.dark-mode {
+  background-color: #121212;
+  color: #f4f4f4;
+}
+
+body.dark-mode .typing-text {
+  color: #ffe600;
+}
+
+body.dark-mode .social-links a {
+  color: #f4f4f4;
+}
+
+body.dark-mode .social-links a:hover {
+  color: #fea116;
+}
+
