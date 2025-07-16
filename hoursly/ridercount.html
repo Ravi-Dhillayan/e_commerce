@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rider Count by Store</title>
+  <link rel="stylesheet" href="rider.css"><!-- keep your own styles -->
+</head>
+<body>
+  <div class="container">
+    <h2>Rider Count by Store</h2>
+
+    <!-- file chooser + submit -->
+    <input type="file" id="riderFileInput" accept=".xlsx,.xls,.csv">
+    <button id="riderSubmitBtn">Submit</button>
+
+    <!-- live search box -->
+    <input
+      type="text"
+      id="riderSearch"
+      placeholder="Search by Store Name"
+      style="margin:20px 0;width:250px"
+    >
+
+    <!-- result table -->
+    <table id="riderTable">
+      <thead>
+        <tr><th>Store Name</th><th>Rider Count</th></tr>
+      </thead>
+      <tbody><!-- JS fills this --></tbody>
+    </table>
+  </div>
+
+  <!-- XLSX library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <!-- our logic -->
+  <script src="rider.js"></script>
+</body>
+</html>
